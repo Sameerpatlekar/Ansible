@@ -15,11 +15,6 @@
           - python3-pip
         state: present
 
-    - name: Ensure MySQL Python library is installed
-      pip:
-        name: pymysql
-        state: present
-
     - name: Create database schema
       community.mysql.mysql_db:
         login_host: "{{ db_instance_endpoint }}"
