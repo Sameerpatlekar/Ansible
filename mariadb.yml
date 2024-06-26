@@ -4,9 +4,8 @@
   become: yes
 
   vars:
-    mysql_root_password: 1
     db_name: studentapp
-    db_user: sameer
+    db_user: root
     db_password: 1234
 
   tasks:
@@ -20,9 +19,7 @@
     - name: Secure MariaDB installation (optional)
       mysql_user:
         login_user: root
-        login_password: "{{ mysql_root_password }}"
         user: root
-        password: "{{ mysql_root_password }}"
         host: localhost
         priv: "*.*:ALL,GRANT"
         state: present
@@ -34,7 +31,6 @@
         name: "{{ db_name }}"
         state: present
         login_user: root
-        login_password: "{{ mysql_root_password }}"
       tags: 
         - mariadb
 
@@ -46,6 +42,5 @@
         host: localhost
         state: present
         login_user: root
-        login_password: "{{ mysql_root_password }}"
       tags: 
         - mariadb
