@@ -8,6 +8,19 @@
     db_user: "admin"
     db_password: "admin123"
   tasks:
+    - name: Install MySQL client and Python pip
+      ansible.builtin.apt:
+        name: 
+          - mysql-client
+          - python3-pip
+        state: present
+
+    - name: Install pymysql using pip
+      ansible.builtin.pip:
+        name: pymysql
+        state: present
+        executable: pip3
+        
     - name: Ensure MySQL Python library is installed
       pip:
         name: pymysql
