@@ -1,23 +1,23 @@
 ---
-- name: Install MariaDB and create schema
+- name: Create Database Schema in AWS RDS
   hosts: localhost
-  become: yes
-
   vars:
-    db_name: studentapp
-
+    db_instance_endpoint: "terraform-20240626152833955600000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com"
+    db_instance_port: 3306
+    db_name: "studentapp"
+    db_user: "admin"
+    db_password: "admin123"
   tasks:
-    - name: Install MariaDB server
-      apt:
-        name: mariadb-server
+    - name: Ensure MySQL Python library is installed
+      pip:
+        name: pymysql
         state: present
-      tags: 
-        - mariadb
 
     - name: Create database schema
-      mysql_db:
+      community.mysql.mysql_db:
+        login_host: "{{ db_instance_endpoint }}"
+        login_port: "{{ db_instance_port }}"
+        login_user: "{{ db_user }}"
+        login_password: "{{ db_password }}"
         name: "{{ db_name }}"
         state: present
-        login_user: root
-      tags: 
-        - mariadb
