@@ -5,8 +5,6 @@
 
   vars:
     db_name: studentapp
-    db_user: root
-    db_password: 1234
 
   tasks:
     - name: Install MariaDB server
@@ -16,30 +14,9 @@
       tags: 
         - mariadb
 
-    - name: Secure MariaDB installation (optional)
-      mysql_user:
-        login_user: root
-        user: root
-        host: localhost
-        priv: "*.*:ALL,GRANT"
-        state: present
-      tags: 
-        - mariadb
-
     - name: Create database schema
       mysql_db:
         name: "{{ db_name }}"
-        state: present
-        login_user: root
-      tags: 
-        - mariadb
-
-    - name: Create database user
-      mysql_user:
-        name: "{{ db_user }}"
-        password: "{{ db_password }}"
-        priv: "{{ db_name }}.*:ALL"
-        host: localhost
         state: present
         login_user: root
       tags: 
