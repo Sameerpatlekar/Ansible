@@ -68,6 +68,6 @@
           <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
            maxTotal="500" maxIdle="30" maxWaitMillis="1000"
            username="admin" password="admin123" driverClassName="com.mysql.jdbc.Driver"
-           url="jdbc:mysql://terraform-20240627075733469800000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com:3306/studentapp"/>
+           url="terraform-20240627092452400100000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com:3306/studentapp"/>
     - name: Start the script
       shell: /opt/tomcat/apache-tomcat-9.0.90/bin/catalina.sh start
