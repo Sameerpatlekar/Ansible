@@ -74,6 +74,6 @@
                     username="admin"
                     password="admin123"
                     driverClassName="com.mysql.jdbc.Driver"
-                    url="jdbc:mysql://terraform-20240626152833955600000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com:3306/studnetapp"/>
+                    url="jdbc:mysql://terraform-20240627075733469800000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com:3306/studnetapp"/>
     - name: Start the script
       shell: /opt/tomcat/apache-tomcat-9.0.90/bin/catalina.sh start
