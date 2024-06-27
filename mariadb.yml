@@ -23,3 +23,18 @@
         login_password: "{{ db_password }}"
         name: "{{ db_name }}"
         state: present
+    
+    - name: Create table in the database schema
+      mysql_query:
+        db: "{{ db_name }}"
+        login_user: "{{ db_user }}"
+        login_password: "{{ db_password }}"
+        login_host: "{{ db_instance_endpoint }}"
+        query: >
+          CREATE TABLE if not exists students(
+            student_id INT NOT NULL AUTO_INCREMENT,student_name VARCHAR(100) NOT NULL,
+            student_addr VARCHAR(100) NOT NULL,student_age VARCHAR(3) NOT NULL,student_qual VARCHAR(20) NOT NULL,student_percent VARCHAR(10) NOT NULL,student_year_passed VARCHAR(10) NOT NULL,PRIMARY KEY (student_id)
+          );
+
+
+
