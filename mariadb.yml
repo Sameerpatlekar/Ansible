@@ -25,7 +25,7 @@
         state: present
     
     - name: Create table in the database schema
-      community.mysql.mysql_query:
+      mysql_query:
         name: "{{ db_name }}"
         login_user: "{{ db_user }}"
         login_password: "{{ db_password }}"
