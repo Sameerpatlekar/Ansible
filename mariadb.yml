@@ -2,7 +2,7 @@
 - name: Create Database Schema in AWS RDS
   hosts: localhost
   vars:
-    db_instance_endpoint: "terraform-20240626152833955600000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com"
+    db_instance_endpoint: "terraform-20240627075733469800000001.c7ko42wuoka1.us-east-1.rds.amazonaws.com"
     db_instance_port: 3306
     db_name: "studentapp"
     db_user: "admin"
